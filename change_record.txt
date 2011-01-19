@@ -1,0 +1,8 @@
+V1.2 (12.03.2010)
+- SimpliciTI	  Added SimpliciTI sources to project. Upgraded to Version 1.1.1.
+- 433MHz support  Added ISM_LF support for BlueRobin and SimpliciTI
+- Added projects for full and kickstart (16kB code limit) license 
+- Added RFBSL function
+													
+V1.1 (22.11.2009)
+First version released to manufacturing.
