@@ -1,3 +1,6 @@
+NOTE: Versions below reference original source from TI's website.  All later code changes
+can be tracked in the github project exosite-labs/cc1111_chronos_uartgw
+
 V1.2 (12.03.2010)
 - SimpliciTI	  Added SimpliciTI sources to project. Upgraded to Version 1.1.1.
 - 433MHz support  Added ISM_LF support for BlueRobin and SimpliciTI
