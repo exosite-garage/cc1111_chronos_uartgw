@@ -48,14 +48,13 @@
 
 #include "hal_types.h"
 #include "usb_uart.h"
-
+#include "embedded_uart.h"
 
 // *************************************************************************************************
 // Defines section
 
 // Service USB process directly during initial enumeration
 #define ENUMERATION_TIME    (20000u)
-
 
 // *************************************************************************************************
 // Global Variable section
@@ -164,13 +163,42 @@ int main( void )
   P1DIR |= BIT4; 
   TP_L;
   
-  // P0.0 - P0.5 to output (unused)
-  P0DIR |= BIT5 | BIT4 | BIT3 | BIT2 | BIT1 | BIT0;
+  // P0.0 - P0.4 to output (unused)
+  P0DIR |= BIT4 | BIT3 | BIT2 | BIT1 | BIT0;
   // P1.5, P1.6, P1.7 to output (unused)
   P1DIR |= BIT5 | BIT6 | BIT7;
   // P2.0, P2.3, P2.4 to output (unused)
   P2DIR |= BIT0 | BIT3 | BIT4;
+
+  #ifdef EMBEDDED_UART 
+    for (i=0; i<20000; i++) {
+      if (i % 5000 == 0) {
+        TOGGLE_LED;
+      }
+    } 
+    LED_OFF;
+    
+    //UART1 uses alt 1 pin config
+    PERCFG &= ~0x02;
+    //force timer 1 and uart0 to alt 2 ping config to ensure no conflicts
+    PERCFG |= 0x41;
+    //set p0.2-5 to peripheral function for uart
+    P0SEL |= 0x3c;
+    
+    //ensure UART1 has port priority over timer 3
+    P2SEL &= ~0x20;
+    //ensure UART1 has port priority over usart0
+    P2SEL |= 0x40;
+    //ensure UART1 has port priority over timer 1
+    P2DIR &= ~0xc0;
+    P2DIR |= 0x40;
+
+  #else
+    P0DIR |= BIT5; // if not embedded cc1111, can set p0.5 to output as well
+  #endif
 #endif
+  
+
   
   // Clock control
   // Default settings are 0x5C
@@ -184,17 +212,25 @@ int main( void )
   while(!(SLEEP & (BIT6 | BIT5)));  // Wait for both OSC to be stable
   for (i=0; i<20000; i++);          // Simple delay  
 
+#ifdef EMBEDDED_UART
+    //specify UART 1 on which pin mux location
+    IO_PER_LOC_USART1_AT_PORT0_PIN2345(); 
+    // setup for UART 1
+    UART_SETUP(1,9600,HIGH_STOP);  
+#endif
+       
   // Assign BlueRobin TX ID
   BRTX_SetID_v(TX_SERIAL_NO); 
   
   // Reset simpliciti_data
   simpliciti_data[0] = 0xFF;
-  
+
   // Get calibration data from memory - range check added to prevent wrong calibration
   cal = flash_byte_read(0x7FF0);
   if (cal == 0x00) frequoffset = flash_byte_read(0x7FF2);
   if ((frequoffset > 30) && (frequoffset < (256-30))) frequoffset = 0;
-  
+ 
+ 
   // Priority levels: USB, Timer1 (3) -> RF (3) -> Timer4 (1) -> others (0)
   IP1 |= BIT5 + BIT1 + BIT0 + BIT4;
   IP0 |= BIT5 + BIT1 + BIT0;
@@ -221,7 +257,6 @@ int main( void )
     usbUartProcess();
     enumeration++;
   }
-  LED_OFF;
   
   // After enumeration start Timer4 IRQ to service USB driver from now on
   // f=187500Hz/64/5=3kHz/5 --> 1.7ms / IRQ  
@@ -229,10 +264,22 @@ int main( void )
   T4CC0 = 0x04;
   T4CTL = 0xDE;
   INT_ENABLE(INUM_T4, INT_ON);  
-
-  // Enable interrupts
-  INT_GLOBAL_ENABLE(TRUE);  
   
+  // Enable interrupts
+  INT_GLOBAL_ENABLE(TRUE);
+
+#ifdef EMBEDDED_UART 
+  // startup simpliciti even without rx commands  
+  if (bluerobin_on) bluerobin_stop();
+  // Can only start one stack
+  if (!simpliciti_on) 
+  {
+    system_status = HW_SIMPLICITI_TRYING_TO_LINK;
+   // simpliciti_start_rx_only_now = 1;
+    simpliciti_start_now = 1;
+  }
+#endif                              
+                              
   // Main control loop
   while(1) 
   { 

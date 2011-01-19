@@ -40,7 +40,7 @@
 #include "nwk.h"
 #include "app_remap_led.h"
 #include "simpliciti.h"
-
+#include "embedded_uart.h"
 
 // *************************************************************************************************
 // Defines section
@@ -87,6 +87,156 @@ static volatile uint8_t sJoinSem;
 volatile unsigned char simpliciti_flag;
 unsigned char simpliciti_data[SIMPLICITI_MAX_PAYLOAD_LENGTH];
 unsigned char ed_data[SIMPLICITI_MAX_PAYLOAD_LENGTH];
+
+#ifdef EMBEDDED_UART      
+void bin2ascii(unsigned char * buf, unsigned char val) {
+  int high_byte,mid_byte,low_byte;
+  unsigned char * pBuf = buf;
+  
+  if (val >= 100)
+    high_byte = (val / 100);
+  else high_byte = 0;
+  
+  if (val >= 10)
+    mid_byte = ((val - (high_byte * 100)) / 10);
+  else mid_byte = 0;
+
+  low_byte = ((val - (high_byte * 100)) - (mid_byte * 10));    
+  
+  *pBuf++ = (unsigned char)(low_byte + 48);
+  if ((high_byte) || (mid_byte)) *pBuf++ = (unsigned char)(mid_byte + 48);
+    else *pBuf++ = 0;
+  if (high_byte) *pBuf = (unsigned char)(high_byte + 48);
+    else *pBuf = 0;
+    
+  return;
+}
+
+// UART transmission
+void uart_send_packet(unsigned char b, unsigned char x, unsigned char y, unsigned char z) {
+  unsigned char ascii_bytes[3];
+
+  // Sending data out UART
+  // Data format is the string:
+  // $EZ,b:<val1>,x:<val2>,y:<val3>,z:<val4>\r\n
+  // However, the <val> items are hex
+  UART_XMIT(1,0x24);                      //$
+  UART_XMIT(1,0x45);                      //E
+  UART_XMIT(1,0x5a);                      //Z
+  UART_XMIT(1,0x2c);                      //,
+  UART_XMIT(1,0x62);                      //b
+  UART_XMIT(1,0x3a);                      //:
+  bin2ascii((unsigned char *)ascii_bytes,b);
+  if (ascii_bytes[2]) 
+    UART_XMIT(1,ascii_bytes[2]);          //<button msb>
+  if (ascii_bytes[1]) 
+    UART_XMIT(1,ascii_bytes[1]);          //<button b>
+  UART_XMIT(1,ascii_bytes[0]);            //<button lsb>
+  UART_XMIT(1,0x2c);                      //,
+  UART_XMIT(1,0x78);                      //x
+  UART_XMIT(1,0x3a);                      //:
+  bin2ascii((unsigned char *)ascii_bytes,x);
+  if (ascii_bytes[2]) 
+    UART_XMIT(1,ascii_bytes[2]);          //<x msb>
+  if (ascii_bytes[1]) 
+    UART_XMIT(1,ascii_bytes[1]);          //<x b>
+  UART_XMIT(1,ascii_bytes[0]);            //<x lsb>
+  UART_XMIT(1,0x2c);                      //,
+  UART_XMIT(1,0x79);                      //y
+  UART_XMIT(1,0x3a);                      //:
+  bin2ascii((unsigned char *)ascii_bytes,y);
+  if (ascii_bytes[2]) 
+    UART_XMIT(1,ascii_bytes[2]);          //<y msb>
+  if (ascii_bytes[1]) 
+    UART_XMIT(1,ascii_bytes[1]);          //<y b>
+  UART_XMIT(1,ascii_bytes[0]);            //<y lsb>
+  UART_XMIT(1,0x2c);                      //,
+  UART_XMIT(1,0x7a);                      //z
+  UART_XMIT(1,0x3a);                      //:
+  bin2ascii((unsigned char *)ascii_bytes,z);
+  if (ascii_bytes[2]) 
+    UART_XMIT(1,ascii_bytes[2]);          //<z msb>
+  if (ascii_bytes[1]) 
+    UART_XMIT(1,ascii_bytes[1]);          //<z b>
+  UART_XMIT(1,ascii_bytes[0]);            //<z lsb>
+  UART_XMIT(1,0x0d);                      //cr (\r)
+  UART_XMIT(1,0x0a);                     //lf (\n)
+}         
+
+#define COUNT_5S 140
+#define COUNT_60S 1700
+#define LEFT_DOWN   1
+#define RIGHT_DOWN  2
+#define TOP_DOWN    3
+#define BOTTOM_DOWN 4
+#define FACE_DOWN   5
+#define FACE_UP     6
+#define FACE_UNKNOWN 7
+#define MIN1 25
+#define MIN2 70
+#define MAX1 150
+#define MAX2 190
+const unsigned char left_down[3] = {MIN1,MAX2,MAX2};
+const unsigned char right_down[3] = {MIN1,MIN2,MAX2};
+const unsigned char top_down[3] = {MAX1,MIN1,MAX2};
+const unsigned char bottom_down[3] = {MIN2,MIN1,MAX2};
+const unsigned char face_down[3] = {MIN1,MAX2,MAX1};
+const unsigned char face_up[3] = {MIN1,MIN1,MIN2};
+
+void uart_analyze_packet(unsigned char button, unsigned char x, unsigned char y, unsigned char z) {
+  unsigned char state;
+  static unsigned char new_state = FACE_UNKNOWN;
+  static unsigned char new_state_count = 0;
+  static unsigned char button_count = 0;
+  static unsigned char flip_count = 0;
+  static unsigned char last_state = FACE_UNKNOWN;
+  static int data_count = COUNT_60S + 1;
+
+  if ((x < MIN1) && (y > MAX2) && (z > MAX2)) state = LEFT_DOWN;
+    else if ((x < MIN1) && ((y < MIN2) && (y > MIN1)) && (z > MAX2)) state = RIGHT_DOWN;
+      else if ((x > MAX2) && (y > MAX2) && (z > MAX2)) state = TOP_DOWN;
+        else if (((x < MIN2) && (x > MIN1)) && (y < MIN1) && (z > MAX2)) state = BOTTOM_DOWN;
+          else if ((x < MIN1) && (y > MAX2) && ((z > MAX1) && (z < MAX2))) state = FACE_DOWN;
+            else if ((x < MIN1) && (y < MIN1) && (z < MIN1)) state = FACE_UP;
+              else state = FACE_UNKNOWN;
+
+  if (last_state != state) {
+    if (new_state == state) new_state_count++;
+      else {
+        new_state_count = 0;
+        flip_count++;
+      }
+    new_state = state;      
+    if (((new_state_count > 10) && (state != FACE_UNKNOWN)) || (flip_count > 10)) {
+      if (flip_count > 10) button |= 0x80;
+      button |= (state << 1);            //shift state one bit and OR it into "button"
+      last_state = state;
+      uart_send_packet(button,x,y,z);      
+      goto donesending;
+    }
+  }
+
+  if ((button != 1) && (++button_count > 2)) {
+    uart_send_packet(button,x,y,z);
+    goto donesending;
+  }
+  
+  if (data_count++ > COUNT_5S) { //send current data every 5 seconds
+    uart_send_packet(button,x,y,z);
+    goto donesending;
+  }
+
+  return;
+  
+donesending:
+  new_state_count = 0;
+  flip_count = 0;         
+  button_count = 0;
+  data_count = 0;
+  return;
+}
+
+#endif
 
 // AP main routine
 void simpliciti_main(void)
@@ -151,6 +301,10 @@ void simpliciti_main(void)
           BSP_TOGGLE_LED1();
           memcpy(simpliciti_data, ed_data, 4);
           setFlag(simpliciti_flag, SIMPLICITI_TRIGGER_RECEIVED_DATA);
+
+#ifdef EMBEDDED_UART        
+          uart_analyze_packet(simpliciti_data[0],simpliciti_data[1],simpliciti_data[2],simpliciti_data[3]);
+#endif              
         }        
         // Sync packets are either R2R (2 byte) or data (19 byte) long
         else if ((len == 2) || (len == 19))

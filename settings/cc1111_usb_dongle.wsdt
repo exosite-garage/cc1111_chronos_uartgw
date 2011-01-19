@@ -3,7 +3,7 @@
 <Workspace>
   <ConfigDictionary>
     
-  <CurrentConfigs/></ConfigDictionary>
+  <CurrentConfigs><Project>cc1111_usb_dongle/915MHz - Unrestricted IAR Workbench (USA)</Project></CurrentConfigs></ConfigDictionary>
   <Desktop>
     <Static>
       <Workspace>
@@ -12,7 +12,7 @@
           
           
           
-        <Column0>211</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>225</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Build>
         
@@ -20,7 +20,7 @@
         
         
       <PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Find-in-Files</Factory></Window></Windows></PreferedWindows><ColumnWidth0>20</ColumnWidth0><ColumnWidth1>915</ColumnWidth1><ColumnWidth2>240</ColumnWidth2><ColumnWidth3>61</ColumnWidth3></Build>
-    <Debug-Log><PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows></Debug-Log><TerminalIO/><Find-in-Files><PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Build</Factory></Window></Windows></PreferedWindows><ColumnWidth0>440</ColumnWidth0><ColumnWidth1>62</ColumnWidth1><ColumnWidth2>754</ColumnWidth2></Find-in-Files></Static>
+    <Debug-Log><PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows/></PreferedWindows><ColumnWidth0>22</ColumnWidth0><ColumnWidth1>195</ColumnWidth1></Debug-Log><TerminalIO/><Find-in-Files><PreferedWindows><Position>3</Position><ScreenPosX>0</ScreenPosX><ScreenPosY>0</ScreenPosY><Windows><Window><Factory>Build</Factory></Window></Windows></PreferedWindows><ColumnWidth0>440</ColumnWidth0><ColumnWidth1>62</ColumnWidth1><ColumnWidth2>754</ColumnWidth2></Find-in-Files><Tool-Output/></Static>
     <Windows>
       
       
@@ -32,24 +32,24 @@
             <Factory>Workspace</Factory>
             <Session>
               
-            <NodeDict/></Session>
+            <NodeDict><ExpandedNode>cc1111_usb_dongle</ExpandedNode><ExpandedNode>cc1111_usb_dongle/Output</ExpandedNode><ExpandedNode>cc1111_usb_dongle/SimpliciTI</ExpandedNode><ExpandedNode>cc1111_usb_dongle/SimpliciTI/Applications</ExpandedNode><ExpandedNode>cc1111_usb_dongle/SimpliciTI/Components</ExpandedNode><ExpandedNode>cc1111_usb_dongle/Sync</ExpandedNode></NodeDict></Session>
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd1><Wnd2><Tabs><Tab><Identity>TabID-17759-11906</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab><Tab><Identity>TabID-9414-11171</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd2></Windows>
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd3><Tabs><Tab><Identity>TabID-8851-10231</Identity><TabName>Debug Log</TabName><Factory>Debug-Log</Factory><Session/></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd3><Wnd4><Tabs><Tab><Identity>TabID-17759-11906</Identity><TabName>Build</TabName><Factory>Build</Factory><Session/></Tab><Tab><Identity>TabID-9414-11171</Identity><TabName>Find in Files</TabName><Factory>Find-in-Files</Factory><Session/></Tab><Tab><Identity>TabID-24381-25681</Identity><TabName>Tool Output</TabName><Factory>Tool-Output</Factory><Session/></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd4></Windows>
     <Editor>
       
       
       
       
-    <Pane/><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\main.c</Filename><XPos>0</XPos><YPos>116</YPos><SelStart>4832</SelStart><SelEnd>4832</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\simpliciti\Applications\main_AP_BM.c</Filename><XPos>0</XPos><YPos>189</YPos><SelStart>8966</SelStart><SelEnd>8966</SelEnd></Tab><ActiveTab>1</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\embedded_uart\embedded_uart.h</Filename><XPos>0</XPos><YPos>3</YPos><SelStart>542</SelStart><SelEnd>542</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\simpliciti\Components\bsp\drivers\code\bsp_generic_leds.h</Filename><XPos>0</XPos><YPos>63</YPos><SelStart>4373</SelStart><SelEnd>4373</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\usb\class_cdc\usb_uart.c</Filename><XPos>0</XPos><YPos>305</YPos><SelStart>8482</SelStart><SelEnd>8482</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\simpliciti\Components\nwk\nwk_frame.c</Filename><XPos>0</XPos><YPos>299</YPos><SelStart>11337</SelStart><SelEnd>11337</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\simpliciti\simpliciti.h</Filename><XPos>0</XPos><YPos>30</YPos><SelStart>2189</SelStart><SelEnd>2223</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\simpliciti\Components\nwk\nwk.c</Filename><XPos>0</XPos><YPos>322</YPos><SelStart>11741</SelStart><SelEnd>11741</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-0128cb48><key>iaridepm.enu1</key></Toolbar-0128cb48></Sizes></Row0></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>426</Bottom><Right>285</Right><x>-2</x><y>-2</y><xscreen>-668072</xscreen><yscreen>-212060</yscreen><sizeHorzCX>-656904620</sizeHorzCX><sizeHorzCY>-345374592</sizeHorzCY><sizeVertCX>282203</sizeVertCX><sizeVertCY>697068</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>144</Bottom><Right>1019</Right><x>-2</x><y>-2</y><xscreen>1021</xscreen><yscreen>146</yscreen><sizeHorzCX>1003933</sizeHorzCX><sizeHorzCY>237785</sizeHorzCY><sizeVertCX>96362</sizeVertCX><sizeVertCY>102606</sizeVertCY></Rect></Wnd2></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-0057cce0><key>iaridepm.enu1</key></Toolbar-0057cce0></Sizes></Row0><Row1><Sizes><Toolbar-0568f1a8><key>debuggergui.enu1</key></Toolbar-0568f1a8></Sizes></Row1></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>702</Bottom><Right>299</Right><x>-2</x><y>-2</y><xscreen>-699044</xscreen><yscreen>-267840</yscreen><sizeHorzCX>-364085416</sizeHorzCX><sizeHorzCY>-264142011</sizeHorzCY><sizeVertCX>156771</sizeVertCX><sizeVertCY>694280</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes/></Row0></Right><Bottom><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>268</Bottom><Right>699</Right><x>-2</x><y>-2</y><xscreen>701</xscreen><yscreen>270</yscreen><sizeHorzCX>365104</sizeHorzCX><sizeHorzCY>266272</sizeHorzCY><sizeVertCX>53646</sizeVertCX><sizeVertCY>76923</sizeVertCY></Rect></Wnd3><Wnd4><Rect><Top>0</Top><Left>0</Left><Bottom>6357106</Bottom><Right>6422633</Right><x>697</x><y>-2</y><xscreen>1225</xscreen><yscreen>270</yscreen><sizeHorzCX>638021</sizeHorzCX><sizeHorzCY>266272</sizeHorzCY><sizeVertCX>53646</sizeVertCX><sizeVertCY>76923</sizeVertCY></Rect></Wnd4></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Workspace>
 

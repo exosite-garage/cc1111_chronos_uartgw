@@ -22,11 +22,12 @@
 @REM but they are listed at the end of this file for reference.
 
 
-"C:\Programme\IAR Systems\Embedded Workbench 5.3 8051\common\bin\cspybat" "C:\Programme\IAR Systems\Embedded Workbench 5.3 8051\8051\bin\8051proc.dll" "C:\Programme\IAR Systems\Embedded Workbench 5.3 8051\8051\bin\8051emu_cc.dll"  %1 --plugin "C:\Programme\IAR Systems\Embedded Workbench 5.3 8051\8051\bin\<libsupport_plugin>" --backend -B "--proc_core" "plain" "--proc_code_model" "near" "--proc_nr_virtual_regs" "8" "--proc_dptr_nr_of" "1" "--derivative_file" "C:\Programme\IAR Systems\Embedded Workbench 5.3 8051\8051\config\devices\Texas Instruments\CC1111.i51" "-p" "C:\Programme\IAR Systems\Embedded Workbench 5.3 8051\8051\config\devices\Texas Instruments\CC1111.ddf" "--proc_data_model" "large" "--proc_driver" "chipcon" "--erase_flash" "--verify_download" "use_crc16" "--reduce_speed" "--stack_overflow" "--no_banks=4" 
+"C:\Program Files\IAR Systems\Embedded Workbench 5.4 Evaluation\common\bin\cspybat" "C:\Program Files\IAR Systems\Embedded Workbench 5.4 Evaluation\8051\bin\8051proc.dll" "C:\Program Files\IAR Systems\Embedded Workbench 5.4 Evaluation\8051\bin\8051emu_cc.dll"  %1 --plugin "C:\Program Files\IAR Systems\Embedded Workbench 5.4 Evaluation\8051\bin\<libsupport_plugin>" --backend -B "--proc_core" "plain" "--proc_code_model" "near" "--proc_nr_virtual_regs" "8" "--proc_pdata_bank_reg_addr" "0xA0" "--proc_dptr_nr_of" "1" "--proc_data_model" "large" "-p" "C:\Program Files\IAR Systems\Embedded Workbench 5.4 Evaluation\8051\config\devices\_generic\io8052.ddf" "--proc_driver" "chipcon" "--erase_flash" "--verify_download" "use_crc16" "--reduce_speed" "--stack_overflow" "--number_of_banks" "4" 
 
 
 @REM Loaded plugins:
-@REM    8051libsupport.dll
-@REM    C:\Programme\IAR Systems\Embedded Workbench 5.3 8051\common\plugins\CodeCoverage\CodeCoverage.dll
-@REM    C:\Programme\IAR Systems\Embedded Workbench 5.3 8051\common\plugins\Profiling\Profiling.dll
-@REM    C:\Programme\IAR Systems\Embedded Workbench 5.3 8051\common\plugins\stack\stack.dll
+@REM    C:\Program Files\IAR Systems\Embedded Workbench 5.4 Evaluation\8051\bin\8051libsupport.dll
+@REM    C:\Program Files\IAR Systems\Embedded Workbench 5.4 Evaluation\common\plugins\CodeCoverage\CodeCoverage.dll
+@REM    C:\Program Files\IAR Systems\Embedded Workbench 5.4 Evaluation\common\plugins\Profiling\Profiling.dll
+@REM    C:\Program Files\IAR Systems\Embedded Workbench 5.4 Evaluation\common\plugins\stack\stack.dll
+@REM    C:\Program Files\IAR Systems\Embedded Workbench 5.4 Evaluation\common\plugins\SymList\SymList.dll

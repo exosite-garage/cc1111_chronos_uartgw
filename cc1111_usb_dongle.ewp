@@ -12,7 +12,7 @@
       <name>General</name>
       <archiveVersion>1</archiveVersion>
       <data>
-        <version>3</version>
+        <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -229,13 +229,34 @@
           <version>0</version>
           <state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
         </option>
+        <option>
+          <name>PDATA 8-15 register address</name>
+          <state>0xA0</state>
+        </option>
+        <option>
+          <name>PDATA 16-31 register address</name>
+          <state>0xEA</state>
+        </option>
+        <option>
+          <name>General Far22 Heap Size</name>
+          <state>0xFFF</state>
+        </option>
+        <option>
+          <name>GeneralMisraVer</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GeneralMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
       <name>ICC8051</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>6</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -484,6 +505,11 @@
           <name>CCOptLevelSlave</name>
           <state>2</state>
         </option>
+        <option>
+          <name>CompilerMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -668,7 +694,7 @@
       <name>XLINK</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>16</version>
+        <version>17</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -867,24 +893,24 @@
         </option>
         <option>
           <name>AllowExtraOutput</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>GenerateExtraOutput</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>XExtraOutOverride</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>ExtraOutputFile</name>
-          <state>cc1111_usb_dongle.sim</state>
+          <state>programfile.hex</state>
         </option>
         <option>
           <name>ExtraOutputFormat</name>
           <version>11</version>
-          <state>60</state>
+          <state>23</state>
         </option>
         <option>
           <name>ExtraFormatVariant</name>
@@ -979,6 +1005,10 @@
           <name>CrcInitialValue</name>
           <state>0x0</state>
         </option>
+        <option>
+          <name>Linker Far22 Heap Size</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -1022,7 +1052,7 @@
       <name>General</name>
       <archiveVersion>1</archiveVersion>
       <data>
-        <version>3</version>
+        <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -1239,13 +1269,34 @@
           <version>0</version>
           <state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
         </option>
+        <option>
+          <name>PDATA 8-15 register address</name>
+          <state>0xA0</state>
+        </option>
+        <option>
+          <name>PDATA 16-31 register address</name>
+          <state>0xEA</state>
+        </option>
+        <option>
+          <name>General Far22 Heap Size</name>
+          <state>0xFFF</state>
+        </option>
+        <option>
+          <name>GeneralMisraVer</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GeneralMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
       <name>ICC8051</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>6</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -1494,6 +1545,11 @@
           <name>CCOptLevelSlave</name>
           <state>2</state>
         </option>
+        <option>
+          <name>CompilerMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -1678,7 +1734,7 @@
       <name>XLINK</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>16</version>
+        <version>17</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -1989,6 +2045,10 @@
           <name>CrcInitialValue</name>
           <state>0x0</state>
         </option>
+        <option>
+          <name>Linker Far22 Heap Size</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -2032,7 +2092,7 @@
       <name>General</name>
       <archiveVersion>1</archiveVersion>
       <data>
-        <version>3</version>
+        <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -2249,13 +2309,34 @@
           <version>0</version>
           <state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
         </option>
+        <option>
+          <name>PDATA 8-15 register address</name>
+          <state>0xA0</state>
+        </option>
+        <option>
+          <name>PDATA 16-31 register address</name>
+          <state>0xEA</state>
+        </option>
+        <option>
+          <name>General Far22 Heap Size</name>
+          <state>0xFFF</state>
+        </option>
+        <option>
+          <name>GeneralMisraVer</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GeneralMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
       <name>ICC8051</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>6</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -2504,6 +2585,11 @@
           <name>CCOptLevelSlave</name>
           <state>2</state>
         </option>
+        <option>
+          <name>CompilerMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -2688,7 +2774,7 @@
       <name>XLINK</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>16</version>
+        <version>17</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -2999,6 +3085,10 @@
           <name>CrcInitialValue</name>
           <state>0x0</state>
         </option>
+        <option>
+          <name>Linker Far22 Heap Size</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -3042,7 +3132,7 @@
       <name>General</name>
       <archiveVersion>1</archiveVersion>
       <data>
-        <version>3</version>
+        <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -3259,13 +3349,34 @@
           <version>0</version>
           <state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
         </option>
+        <option>
+          <name>PDATA 8-15 register address</name>
+          <state>0xA0</state>
+        </option>
+        <option>
+          <name>PDATA 16-31 register address</name>
+          <state>0xEA</state>
+        </option>
+        <option>
+          <name>General Far22 Heap Size</name>
+          <state>0xFFF</state>
+        </option>
+        <option>
+          <name>GeneralMisraVer</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GeneralMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
       <name>ICC8051</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>6</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -3474,6 +3585,7 @@
           <state>$PROJ_DIR$\simpliciti\Components\mrfi</state>
           <state>$PROJ_DIR$\simpliciti\Components\nwk</state>
           <state>$PROJ_DIR$\simpliciti\Components\nwk_applications</state>
+          <state>$PROJ_DIR$\embedded_uart</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -3513,6 +3625,11 @@
         <option>
           <name>CCOptLevelSlave</name>
           <state>2</state>
+        </option>
+        <option>
+          <name>CompilerMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
         </option>
       </data>
     </settings>
@@ -3698,7 +3815,7 @@
       <name>XLINK</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>16</version>
+        <version>17</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -3885,7 +4002,7 @@
         </option>
         <option>
           <name>DebugInformation</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>RuntimeControl</name>
@@ -3897,24 +4014,24 @@
         </option>
         <option>
           <name>AllowExtraOutput</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>GenerateExtraOutput</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>XExtraOutOverride</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>ExtraOutputFile</name>
-          <state>cc1111_usb_dongle.sim</state>
+          <state>program_file.hex</state>
         </option>
         <option>
           <name>ExtraOutputFormat</name>
           <version>11</version>
-          <state>60</state>
+          <state>23</state>
         </option>
         <option>
           <name>ExtraFormatVariant</name>
@@ -4009,6 +4126,10 @@
           <name>CrcInitialValue</name>
           <state>0x0</state>
         </option>
+        <option>
+          <name>Linker Far22 Heap Size</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -4052,7 +4173,7 @@
       <name>General</name>
       <archiveVersion>1</archiveVersion>
       <data>
-        <version>3</version>
+        <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -4269,13 +4390,34 @@
           <version>0</version>
           <state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
         </option>
+        <option>
+          <name>PDATA 8-15 register address</name>
+          <state>0xA0</state>
+        </option>
+        <option>
+          <name>PDATA 16-31 register address</name>
+          <state>0xEA</state>
+        </option>
+        <option>
+          <name>General Far22 Heap Size</name>
+          <state>0xFFF</state>
+        </option>
+        <option>
+          <name>GeneralMisraVer</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GeneralMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
       <name>ICC8051</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>6</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -4524,6 +4666,11 @@
           <name>CCOptLevelSlave</name>
           <state>2</state>
         </option>
+        <option>
+          <name>CompilerMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -4708,7 +4855,7 @@
       <name>XLINK</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>16</version>
+        <version>17</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -5019,6 +5166,10 @@
           <name>CrcInitialValue</name>
           <state>0x0</state>
         </option>
+        <option>
+          <name>Linker Far22 Heap Size</name>
+          <state>1</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -5062,7 +5213,7 @@
       <name>General</name>
       <archiveVersion>1</archiveVersion>
       <data>
-        <version>3</version>
+        <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -5279,13 +5430,34 @@
           <version>0</version>
           <state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
         </option>
+        <option>
+          <name>PDATA 8-15 register address</name>
+          <state>0xA0</state>
+        </option>
+        <option>
+          <name>PDATA 16-31 register address</name>
+          <state>0xEA</state>
+        </option>
+        <option>
+          <name>General Far22 Heap Size</name>
+          <state>0xFFF</state>
+        </option>
+        <option>
+          <name>GeneralMisraVer</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>GeneralMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
       <name>ICC8051</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>6</version>
+        <version>7</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -5534,6 +5706,11 @@
           <name>CCOptLevelSlave</name>
           <state>2</state>
         </option>
+        <option>
+          <name>CompilerMisraRules04</name>
+          <version>0</version>
+          <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+        </option>
       </data>
     </settings>
     <settings>
@@ -5718,7 +5895,7 @@
       <name>XLINK</name>
       <archiveVersion>3</archiveVersion>
       <data>
-        <version>16</version>
+        <version>17</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -6028,6 +6205,10 @@
         <option>
           <name>CrcInitialValue</name>
           <state>0x0</state>
+        </option>
+        <option>
+          <name>Linker Far22 Heap Size</name>
+          <state>1</state>
         </option>
       </data>
     </settings>
@@ -6589,6 +6770,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\change_record.txt</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\embedded_uart\embedded_uart.h</name>
   </file>
   <file>
     <name>$PROJ_DIR$\flash.c</name>
